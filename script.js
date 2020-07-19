@@ -20,32 +20,47 @@ blankBox.innerText = generatePassword (passwordLength, includeUpper, includeLowe
 
 
 function generatePassword (passwordLength, includeUpper, includeLower, includeNumber, includeSymbols) {
-    if(includeLower === true)
-    return includeLowerCase();
-    if(includeUpper === true)
-    return includeUpperCase();
-    if(includeNumber === true)
-    return includeNumberFunc();
-    if(includeSymbols === true)
-    return includeSymbolFunc();
+let pwString = "";
+let password = "";
 
+if (includeLower === true)
+pwString = pwString + "abcdefghijklmnopqrstuvwxyz";
 
+if (includeUpper === true)
+pwString = pwString + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+if (includeNumber === true)
+pwString = pwString + "1234567890";
+
+if (includeSymbols === true)
+pwString = pwString + "!@#$%^&*()+{}:?";
+
+console.log(pwString)
+
+for(let i=0; i < passwordLength; i++){
+    password += pwString[Math.floor(Math.random() * pwString.length)]
+}
+return password
     }
 
-function includeLowerCase() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-};
+   
+// function includeLowerCase() {
+//     return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+// };
+// includeLowerCase();
 
-function includeUpperCase() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-};
+// function includeUpperCase() {
+//     return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+// };
+// includeUpperCase();
 
-function includeNumberFunc() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-};
+// function includeNumberFunc() {
+//     return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+// };
+// includeNumberFunc();
 
-function includeSymbolFunc() {
-    var symbols = "!@#$%^&*()+{}:?";
-    return symbols[Math.floor(Math.random() * 15)]; 
-};
-
+// function includeSymbolFunc() {
+//     var symbols = "!@#$%^&*()+{}:?";
+//     return symbols[Math.floor(Math.random() * 15)]; 
+// };
+// includeSymbolFunc();
